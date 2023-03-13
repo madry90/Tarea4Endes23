@@ -5,40 +5,80 @@
 
 package entidadFinanciera;
 
-
+/**
+ * Clase CCuenta. 
+ * Clase usada como plantilla para crear objetos CCuenta.
+ * @author JCARLOSAF
+ */
 public class CCuenta {
 
     /**
      * Nombre de la persona titular
      */
     private String nombre;
+    /**
+     * Identificador de la cuenta
+     */
     private String cuenta;
+    /**
+     * Saldo de la cuenta
+     */
     private double saldo;
+    /**
+     * Tipo de interes de la cuenta
+     */
     private double tipoInterés;
+    /**
+     * String mensaje de error constante
+     */
     private String ERRORCANTIDADNEGATIVA="No se puede ingresar una cantidad negativa";
 
+    /**
+     * Constructor vacio
+     */
     public CCuenta()
     {
     }
-
+    /**
+     * Constructor inicializador de objetos
+     * @param nom nombre del titular
+     * @param cue identificador de la cuenta
+     * @param sal saldo de la cuenta
+     * @param tipo tipo de interes de la cuenta
+     */
     public CCuenta(String nom, String cue, double sal, double tipo)
     {
         nombre =nom;
         cuenta=cue;
         saldo=sal;
     }
-    
+    /**
+     * Metodo que retorna el estado actual de la cuenta, mostrando el saldo
+     * @return saldo
+     */
     public double estado(){
         return this.getSaldo();
     }
-
+    /**
+     * Metodo ingresar.
+     * Recibe una cantidad como paramentro y actualiza el saldo sumando esa
+     * cantidad
+     * @param cantidad cuantia a ingresar
+     * @throws Exception 
+     */
     public void ingresar(double cantidad) throws Exception
     {
         if (cantidad<0)
             throw new Exception("No se puede ingresar una cantidad negativa");
         setSaldo(getSaldo() + cantidad);
     }
-
+    /**
+     * Metodo retirar
+     * Recibe una cantidad como parametro y actualiza el saldo restando esa
+     * cantidad
+     * @param cantidad cuantia a extraer
+     * @throws Exception 
+     */
     public void retirar(double cantidad) throws Exception
     {
         if (cantidad <= 0)
